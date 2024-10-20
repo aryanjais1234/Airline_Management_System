@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="adminHome.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="addCarrier.html">Add Carrier</a></li>
+            <li><a href="editCarrier.html">Edit/Delete Carrier</a></li>
+            <li><a href="addFlight.html">Add Flight</a></li>
+            <li><a href="editFlight.html">Edit/Delete Flight</a></li>
+        </ul>
+    </nav>
+    
+    <h2>All Carriers</h2>
+    <table id="carrierTable">
+        <thead>
+            <tr>
+                <th>Carrier Name</th>
+                <th>30 Days Advance Booking</th>
+                <th>60 Days Advance Booking</th>
+                <th>90 Days Advance Booking</th>
+                <th>Bulk Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Carrier details will be inserted here dynamically -->
+        </tbody>
+    </table>
+    
+    <h2>All Flights</h2>
+    <table id="flightTable">
+        <thead>
+            <tr>
+                <th>Carrier Name</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Air Fare</th>
+                <th>Seat Capacity (Business)</th>
+                <th>Seat Capacity (Economy)</th>
+                <th>Seat Capacity (Executive)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Flight details will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <script src="adminHome.js"></script>
+</body>
+</html>

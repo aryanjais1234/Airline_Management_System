@@ -1,0 +1,55 @@
+body {
+  background-color: teal;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registration-container {
+  margin: auto;
+  background-color: #808080;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 420px;
+}
+
+h2 {
+  text-align: center;
+  color: aliceblue;
+}
+
+label, textarea, input {
+  color: rgb(10, 10, 10);
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 2% 0%;
+  background-color: DodgerBlue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0047AB;
+}
+
+#acknowledgment {
+  color: green;
+  margin-top: 20px;
+  text-align: center;
+}

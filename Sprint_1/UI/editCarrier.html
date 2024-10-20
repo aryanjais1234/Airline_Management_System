@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit/Delete Carrier</title>
+    <link rel="stylesheet" href="addCarrier.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="adminHome.html">Home</a></li>
+            <li><a href="addCarrier.html">Add Carrier</a></li>
+            <li><a href="addFlight.html">Add Flight</a></li>
+            <li><a href="editFlight.html">Edit/Delete Flight</a></li>
+            <li><a href="bookFlight.html">Book Flight</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Edit/Delete Carrier Details</h2>
+    <form id="editCarrierForm">
+        <label for="carrierSelect">Select Carrier Name:</label>
+        <select id="carrierSelect">
+            <!-- Options will be populated dynamically -->
+        </select>
+        <button type="button" id="searchCarrier">Search</button>
+
+        <div id="carrierDetails" style="display: none;">
+            <label for="carrierName">Carrier Name:</label>
+            <input type="text" id="carrierName" disabled>
+            
+            <hr>
+            <label>Discount Percentage</label>
+            <input type="number" id="60DaysAdvanceBooking">
+            <input type="number" id="90DaysAdvanceBooking">
+            <input type="number" id="bulkBooking">
+            <input type="number" id="silverUser">
+            <input type="number" id="goldUser">
+            <input type="number" id="platinumUser">
+
+            <hr>
+            <label>Refund Percentage</label>
+            <input type="number" id="2DaysBeforeTravelDate">
+            <input type="number" id="10DaysBeforeTravelDate">
+            <input type="number" id="20DaysOrMoreBeforeTravelDate">
+
+            <button type="button" id="editCarrier">Edit Carrier</button>
+            <button type="button" id="deleteCarrier">Delete Carrier</button>
+        </div>
+    </form>
+    <p id="acknowledgmentMessage" style="display: none;"></p>
+
+    <script src="editCarrier.js"></script>
+</body>
+</html>

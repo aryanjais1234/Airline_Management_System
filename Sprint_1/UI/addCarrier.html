@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Carrier</title>
+    <link rel="stylesheet" href="addCarrier.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="adminHome.html">Home</a></li>
+            <li><a href="editCarrier.html">Edit/Delete Carrier</a></li>
+            <li><a href="addFlight.html">Add Flight</a></li>
+            <li><a href="editFlight.html">Edit/Delete Flight</a></li>
+            <li><a href="bookFlight.html">Book Flight</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Add Carrier Details</h2>
+    <form id="carrierForm">
+        <label for="carrierName">Carrier Name:</label>
+        <input type="text" id="carrierName" maxlength="50" required>
+        
+        <hr>
+        <label>Discount Percentage</label>
+        <input type="number" id="30DaysAdvanceBooking" placeholder="30 Days Advance Booking">
+        <input type="number" id="60DaysAdvanceBooking" placeholder="60 Days Advance Booking">
+        <input type="number" id="90DaysAdvanceBooking" placeholder="90 Days Advance Booking">
+        <input type="number" id="bulkBooking" placeholder="Bulk Booking">
+        <input type="number" id="silverUser" placeholder="Silver User">
+        <input type="number" id="goldUser" placeholder="Gold User">
+        <input type="number" id="platinumUser" placeholder="Platinum User">
+        
+        <hr>
+        <label>Refund Percentage</label>
+        <input type="number" id="2DaysBeforeTravelDate" placeholder="2 Days Before Travel Date">
+        <input type="number" id="10DaysBeforeTravelDate" placeholder="10 Days Before Travel Date">
+        <input type="number" id="20DaysOrMoreBeforeTravelDate" placeholder="20 Days or More Before Travel Date">
+
+        <button type="submit">Add Carrier</button>
+    </form>
+    <p id="successMessage" style="display: none;"></p>
+    
+    <script src="addCarrier.js"></script>
+</body>
+</html>

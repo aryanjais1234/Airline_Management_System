@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Flight</title>
+    <link rel="stylesheet" href="addCarrier.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="adminHome.html">Home</a></li>
+            <li><a href="addCarrier.html">Add Carrier</a></li>
+            <li><a href="editCarrier.html">Edit/Delete Carrier</a></li>
+            <li><a href="addFlight.html">Add Flight</a></li>
+            <li><a href="editFlight.html">Edit/Delete Flight</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Book Flight</h2>
+    <form id="bookingForm">
+        <label for="flightSearchOrigin">Origin:</label>
+        <select id="flightSearchOrigin">
+            <option value="CityA">City A</option>
+            <option value="CityB">City B</option>
+            <!-- Add more cities as needed -->
+        </select>
+
+        <label for="flightSearchDestination">Destination:</label>
+        <select id="flightSearchDestination">
+            <option value="CityA">City A</option>
+            <option value="CityB">City B</option>
+            <!-- Add more cities as needed -->
+        </select>
+
+        <label for="travelDate">Travel Date:</label>
+        <input type="date" id="travelDate" required>
+
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <h3>Available Flights</h3>
+    <table id="flightTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>No. of Seats</th>
+                <th>Seat Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Flight details will be populated here -->
+        </tbody>
+    </table>
+
+    <p id="bookingSuccessMessage" style="display: none;"></p>
+
+    <script src="bookFlight.js"></script>
+</body>
+</html>
