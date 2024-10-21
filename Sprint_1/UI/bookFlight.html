@@ -20,18 +20,10 @@
     <h2>Book Flight</h2>
     <form id="bookingForm">
         <label for="flightSearchOrigin">Origin:</label>
-        <select id="flightSearchOrigin">
-            <option value="CityA">City A</option>
-            <option value="CityB">City B</option>
-            <!-- Add more cities as needed -->
-        </select>
+        <input id="flightSearchOrigin" type="text" name="flightSearchOrigin">
 
         <label for="flightSearchDestination">Destination:</label>
-        <select id="flightSearchDestination">
-            <option value="CityA">City A</option>
-            <option value="CityB">City B</option>
-            <!-- Add more cities as needed -->
-        </select>
+        <input id="flightSearchDestination" type="text" name="flightSearchDestination">
 
         <label for="travelDate">Travel Date:</label>
         <input type="date" id="travelDate" required>
@@ -43,9 +35,10 @@
     <table id="flightTable" style="display: none;">
         <thead>
             <tr>
-                <th>Flight ID</th>
-                <th>No. of Seats</th>
-                <th>Seat Category</th>
+                <th>Flight ID</th><hr>
+                <th>No. of Seats In Economy</th><hr>
+                <th>No. of Seats  In Business</th><hr>
+                <th>No. of Seats In Executive</th><hr>
                 <th>Action</th>
             </tr>
         </thead>

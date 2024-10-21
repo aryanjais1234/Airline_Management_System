@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="myProfile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myProfile.html">My Profile</a></li>
+                <li><a href="myTrips.html">My Trips</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="welcome-message">
+            Welcome <span id="passengerName"></span> !!!
+        </div>
+    </header>
+    <div class="box">
+
+    <div class="container">
+        <div id="data" class="userData">
+            <div id="data"></div>
+            <div id="onedit" class=""></div>
+        </div>
+        
+        <div id="edit" class="editform" style="display: none;">
+            <form action="" onsubmit="return false">
+                <label for="">First Name</label>
+                <input type="text" id="firstName">
+                <label for="">Last Name</label>
+                <input type="text" id="lastName">
+                <label for="">DOB</label>
+                <input type="date" id="dob">
+                <label for="">Address</label>
+                <textarea name="" id="address" ></textarea>
+                <label for="">Contact</label>
+                <input type="text" name="" id="contact">
+                <button id="saveBtn">Save Changes</button>
+                <button id="cancelBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+    
+    
+    <script src="myProfile.js"></script>
+</body>
+</html>

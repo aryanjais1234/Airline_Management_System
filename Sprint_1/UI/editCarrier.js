@@ -3,6 +3,8 @@ const carrierSelect = document.getElementById('carrierSelect');
 const carrierDetails = document.getElementById('carrierDetails');
 const acknowledgmentMessage = document.getElementById('acknowledgmentMessage');
 
+
+
 // Function to populate select options from localStorage
 function populateCarrierOptions() {
     const carriers = JSON.parse(localStorage.getItem('carrierList')) || [];
@@ -79,6 +81,8 @@ document.getElementById('editCarrier').addEventListener('click', function() {
 // Delete carrier details
 document.getElementById('deleteCarrier').addEventListener('click', function() {
     let carriers = JSON.parse(localStorage.getItem('carrierList')) || [];
+    let flightList = JSON.parse(localStorage.getItem('flightList')) || [];
+    
     const selectedCarrierIndex = carriers.findIndex(c => c.carrierName === carrierSelect.value); // Find by carrier name
 
     if (selectedCarrierIndex !== -1) {
@@ -86,8 +90,14 @@ document.getElementById('deleteCarrier').addEventListener('click', function() {
         const deletedCarrierName = carriers[selectedCarrierIndex].carrierName;
         carriers.splice(selectedCarrierIndex, 1);
 
+        for(var f in flightList){
+            const index = flightList.findIndex(f => f.carrierName == carrierSelect.value);
+            flightList.splice(index,1);
+        }
+
         // Save the updated carrier list back to localStorage
         localStorage.setItem('carrierList', JSON.stringify(carriers));
+        localStorage.setItem('flightList', JSON.stringify(flightList));
 
         acknowledgmentMessage.innerText = `${deletedCarrierName} has been removed from the system.`;
         acknowledgmentMessage.style.display = 'block';

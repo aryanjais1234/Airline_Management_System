@@ -1,0 +1,22 @@
+body{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.admin{
+    background-color: rgb(166, 240, 230);
+    width: 200px;
+}
+
+.login{
+
+}

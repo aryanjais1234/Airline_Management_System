@@ -5,59 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Airline Management System</title>
     <link rel="stylesheet" href="home.css">
-    <script src="home.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="#" id="profileLink">My Profile</a></li>
-            <li><a href="#" id="myTripsLink">My Trips</a></li>
-            <li><a href="login.html">Logout</a></li>
-        </ul>
-    </nav>
-
     <header>
-        <h1 id="welcomeMessage">Welcome, Passenger!!!</h1>
-        <h2>Airline Management System</h2>
-    </header>
-
-    <section class="search-flights">
-        <h3>Search Flights</h3>
-        <form id="searchForm">
-            <label for="origin">Origin:</label>
-            <select id="origin">
-                <option value="Delhi">Delhi</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Bangalore">Bangalore</option>
-            </select>
-
-            <label for="destination">Destination:</label>
-            <select id="destination">
-                <option value="New York">New York</option>
-                <option value="London">London</option>
-                <option value="Sydney">Sydney</option>
-            </select>
-
-            <label for="departureDate">Departure Date:</label>
-            <input type="date" id="departureDate">
-
-            <label for="travellers">No. of Travellers:</label>
-            <input type="number" id="travellers" min="1">
-
-            <label for="classType">Class:</label>
-            <select id="classType">
-                <option value="Economy">Economy</option>
-                <option value="Executive">Executive</option>
-                <option value="Business">Business</option>
-            </select>
-
-            <button type="submit">Search</button>
-        </form>
-
-        <div id="flightResults">
-            <!-- Results will be displayed here -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myProfile.html">My Profile</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button id="dropbtn">MyTrip
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="myDropdown">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div> 
+                </li>
+                <li><a href="login.html" id="logOut">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="welcome-message">
+            Welcome <span id="passengerName">Passenger_name</span> !!!
         </div>
-    </section>
+    </header>
+    <h2 class="title">Welcome to EasyGo AMS</h2>
+    <div class="container">
+
+        <div class="booking">
+            
+            <h2>Book Flight</h2>
+            <form id="bookingForm">
+                <label for="flightSearchOrigin">Origin:</label>
+                <input id="flightSearchOrigin" type="text" name="flightSearchOrigin">
+                
+                <label for="flightSearchDestination">Destination:</label>
+                <input id="flightSearchDestination" type="text" name="flightSearchDestination">
+                
+                <label for="travelDate">Travel Date:</label>
+                <input type="date" id="travelDate" required>
+                
+                <button type="submit">Search Flights</button>
+            </form>
+            
+            <table id="flightTable" style="display: none;">
+                <h3>Available Flights</h3>
+                <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>No. of Seats In Economy</th>
+                <th>No. of Seats  In Business</th>
+                <th>No. of Seats In Executive</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Flight details will be populated here -->
+        </tbody>
+    </table>
+    
+    <p id="bookingSuccessMessage" style="display: none;"></p>
+    
+</div>
+</div>
+    <script src="bookFlight.js"></script>
+
+    <script>
+
+        const loogedInId = JSON.parse(localStorage.getItem('loggedInUser'));
+        const loogedInUser = JSON.parse(localStorage.getItem(loogedInId));
+        
+
+        if(loogedInUser){
+            document.getElementById('passengerName').innerHTML = loogedInUser.firstName;
+        }
+        document.getElementById('dropbtn').addEventListener('click',function(){
+            document.getElementById("myDropdown").classList.toggle("show");
+        })
+    </script>
 </body>
 </html>

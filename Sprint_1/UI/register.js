@@ -1,59 +1,65 @@
-document.getElementById('registrationForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+document.getElementById('registerBtn').addEventListener('click',function(){
+    const firstName = document.getElementById('firstName').value;
+    const lastName =  document.getElementById('lastName').value;
+    const dob = document.getElementById('dob').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const contact = document.getElementById('contactNumber').value;
+    const success = document.getElementById('success');
 
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const dob = new Date(document.getElementById('dob').value);
-  const email = document.getElementById('email').value;
-  const address = document.getElementById('address').value;
-  const contactNumber = document.getElementById('contactNumber').value;
-  const acknowledgment = document.getElementById('acknowledgment');
+    if(!firstName || !lastName || !dob || !email || ! address || !contact){
+        alert('Please enter all details');
+        return;
+    }
 
-  // Validate input fields
-  if (dob.getFullYear() < 1924) {
-      acknowledgment.textContent = 'Choose a date greater than 1/1/1924';
-      acknowledgment.style.color = 'red';
-      return;
-  }
+    success.innerHTML = '';
 
-  if (contactNumber.length !== 10 || isNaN(contactNumber)) {
-      acknowledgment.textContent = 'Enter a valid contact number';
-      acknowledgment.style.color = 'red';
-      return;
-  }
+    const date = new Date(dob);
 
-  if (!email.includes('@')) {
-      acknowledgment.textContent = 'Enter a valid email id';
-      acknowledgment.style.color = 'red';
-      return;
-  }
+    const minDate = new Date('1924-01-01');
+    const date2 = new Date();
 
-  // Generate random Passenger ID and Password
-  const passengerId = Math.floor(10000 + Math.random() * 90000);
-  const password = firstName.slice(0, 4) + '@123';
+    let day = date2.getDate();
+    let month = date2.getMonth() + 1;
+    let year = date2.getFullYear();
+    let maxDate = `${year}-${day}-${month}`;
 
-  // Save user details to localStorage
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-  const newUser = {
-      userId: passengerId.toString(),
-      firstName,
-      lastName,
-      dob: dob.toLocaleDateString(),
-      email,
-      address,
-      contactNumber,
-      password
-  };
-  users.push(newUser);
-  localStorage.setItem('users', JSON.stringify(users));
+    if(date<minDate){
+        alert("Choose a date greater than 1/1/1924 and before today");
+        return;
+    }
 
-  // Acknowledge successful registration
-  acknowledgment.textContent = `Passenger Registration successful. Passenger ID: ${passengerId}, Password: ${password}`;
-  acknowledgment.style.color = 'green';
-});
+    if(!/^\d{10}$/.test(contact)){
+        alert('Enter a valid contact number');
+        return;
+    }
 
-document.getElementById('resetButton').addEventListener('click', function () {
-  if (!confirm('Is it okay to reset the fields?')) {
-      event.preventDefault();
-  }
-});
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailPattern.test(email)){
+        alert('Enter a valid email id');
+        return;
+    }
+
+    const passengerId = Math.floor(Math.random()*100000);
+    const password = firstName.slice(0,4) + '@123';
+    success.innerHTML = `Passenger Registration is successful! <br>ID: ${passengerId} <br> Password ${password}`;
+    const userData = {
+        passengerId: passengerId,
+        firstName: firstName,
+        lastName: lastName,
+        dob: dob,
+        email: email,
+        address: address,
+        contact: contact,
+        password: password
+    };
+
+    localStorage.setItem(passengerId, JSON.stringify(userData));
+}
+);
+
+document.getElementById('resetBtn').addEventListener('click', function(e){
+    if(!confirm('Is it okay to reset the fields?')){
+        e.preventDefault();
+    }
+})
